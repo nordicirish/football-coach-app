@@ -5,8 +5,9 @@ const DUMMY_EVENTS = [
     eventType: "Training1",
     description: "Some other training event",
     location: "A street Tampere",
-    startTime: "2022-06-21T14:30:00",
-    endTime: "2022-06-21T16:00:00",
+    date: "2022-06-21T14:30:00",
+    // startTime: "2022-06-21T14:30:00",
+    // endTime: "2022-06-21T16:00:00",
     image: "images/training1.webp",
     isFeatured: false,
   },
@@ -16,8 +17,9 @@ const DUMMY_EVENTS = [
     eventType: "Match",
     description: "Some match",
     location: "Some street, Turku",
-    startTime: "2023-08-21T14:30:00",
-    endTime: "2023-08-21T17:00:00",
+    date: "2023-08-21T14:30:00",
+    // startTime: "2023-08-21T14:30:00",
+    // endTime: "2023-08-21T17:00:00",
     image: "images/match.jpg",
     isFeatured: true,
   },
@@ -27,8 +29,9 @@ const DUMMY_EVENTS = [
     eventType: "Training2",
     description: "Some match",
     location: "Some street, Turku",
-    startTime: "2023-06-21T14:30:00",
-    endTime: "2023-06-21T16:00:00",
+    date: "2023-06-21T14:30:00",
+    // startTime: "2023-06-21T14:30:00",
+    // endTime: "2023-06-21T16:00:00",
     image: "images/training2.jpg",
     isFeatured: true,
   },
@@ -45,7 +48,7 @@ export function getFilteredEvents(dateFilter) {
   const { year, month } = dateFilter;
 
   let filteredEvents = DUMMY_EVENTS.filter((event) => {
-    const eventDate = new Date(event.startTime);
+    const eventDate = new Date(event.date);
     return (
       eventDate.getFullYear() === year && eventDate.getMonth() === month - 1
     );

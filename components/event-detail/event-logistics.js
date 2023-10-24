@@ -6,9 +6,9 @@ import { getHumanReadableDate } from "../../dummy-data";
 
 function EventLogistics(props) {
   console.log("event-logistics", props);
-  const { startTime, address, image, imageAlt } = props;
+  const { date, address, image, imageAlt } = props;
 
-  const humanReadableDate = getHumanReadableDate(startTime);
+  const humanReadableDate = getHumanReadableDate(date);
   console.log("event-logistics humanReadable", humanReadableDate);
   const addressText = address.replace(", ", "\n");
 

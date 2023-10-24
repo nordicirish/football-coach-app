@@ -25,7 +25,7 @@ function EventDetailPage() {
     <Fragment>
       <EventSummary title={event.title} />
       <EventLogistics
-        startTime={event.startTime}
+        date={event.date}
         address={event.location}
         image={event.image}
         imageAlt={event.title}
