@@ -1,53 +1,42 @@
-import React, { useRef } from "react";
+import React, { useState } from "react";
 import Button from "../ui/button";
+import DatePicker, { registerLocale, setDefaultLocale } from "react-datepicker";
+import fi from "date-fns/locale/fi";
+import "react-datepicker/dist/react-datepicker.css";
 import classes from "./events-search.module.css";
+registerLocale("fi", fi);
+setDefaultLocale("fi");
 
 function EventsSearch(props) {
-  const yearInputref = useRef();
-  const monthInputref = useRef();
+  const [startDate, setStartDate] = useState(new Date());
 
   const submitHandler = (e) => {
     e.preventDefault();
 
-    const selectedYear = yearInputref.current.value;
-    const selectedMonth = monthInputref.current.value;
+    const selectedYear = startDate.getFullYear();
+    const selectedMonth = startDate.getMonth() + 1;
 
     props.onSearch(selectedYear, selectedMonth);
   };
 
   return (
     <form className={classes.form} onSubmit={submitHandler}>
-      <div className={classes.controls}>
-        <div className={classes.control}>
-          <label htmlFor="year">Year</label>
-          <select id="year" ref={yearInputref}>
-            <option value="2021"> 2021</option>
-            <option value="2022">2022</option>
-            <option selected value="2023">
-              2023
-            </option>
-            <option value="2024">2024</option>
-          </select>
-        </div>
-        <div className={classes.control}>
-          <label htmlFor="month">Month</label>
-          <select id="month" ref={monthInputref}>
-            <option value="1">January</option>
-            <option value="2">February</option>
-            <option value="3">March</option>
-            <option value="4">April</option>
-            <option value="5">May</option>
-            <option value="6">June</option>
-            <option value="7">July</option>
-            <option value="8">August</option>
-            <option value="9">September</option>
-            <option value="10">October</option>
-            <option value="11">November</option>
-            <option value="12">December</option>
-          </select>
-        </div>
+      <div className={classes.control}>
+        <label htmlFor="startDate" className={classes.label}>
+          Select Date
+        </label>
+        <DatePicker
+          selected={startDate}
+          onChange={(date) => setStartDate(date)}
+          dateFormat="MM/yyyy"
+          showMonthYearPicker
+          id="startDate"
+          name="startDate"
+          locale="fi"
+          className={classes.datepicker}
+        />
       </div>
-      <Button>Find Events</Button>
+      <Button className={classes.button}>Find Events</Button>
     </form>
   );
 }
