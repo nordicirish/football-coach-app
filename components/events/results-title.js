@@ -2,9 +2,9 @@ import Button from "../ui/button";
 import classes from "./results-title.module.css";
 
 function ResultsTitle(props) {
-  const { date } = props;
+  const { startTime } = props;
 
-  const humanReadableDate = new Date(date).toLocaleDateString("fi-FI", {
+  const humanReadableDate = new Date(startTime).toLocaleDateString("fi-FI", {
     month: "long",
     year: "numeric",
   });

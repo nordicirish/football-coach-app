@@ -10,8 +10,8 @@ import ArrowRightIcon from "../icons/arrow-right-icon";
 import { getHumanReadableDate } from "../../dummy-data";
 
 function EventItem(props) {
-  const { title, image, date, location, id } = props;
-  const humanReadableDate = getHumanReadableDate(date);
+  const { title, image, startTime, location, id } = props;
+  const humanReadableDate = getHumanReadableDate(startTime);
   const formattedAddress = location.replace(",", "\n");
   const exploreLink = `/events/${id}`;
 

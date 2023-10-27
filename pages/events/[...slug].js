@@ -29,13 +29,13 @@ function FilteredEventsPage() {
     numMonth > 12
   ) {
     return (
-        <Fragment>
+      <Fragment>
         <ErrorAlert>
           <p>Invalid filter. Please adjust your values!</p>
         </ErrorAlert>
-        <br/>
-        <div className='center'>
-          <Button link='/events'>Show All Events</Button>
+        <br />
+        <div className="center">
+          <Button link="/events">Show All Events</Button>
         </div>
       </Fragment>
     );
@@ -48,23 +48,23 @@ function FilteredEventsPage() {
 
   if (!filteredEvents || filteredEvents.length === 0) {
     return (
-        <Fragment>
+      <Fragment>
         <ErrorAlert>
           <p>No events found for the chosen filter!</p>
         </ErrorAlert>
-        <br/>
-        <div className='center'>
-          <Button link='/events'>Show All Events</Button>
+        <br />
+        <div className="center">
+          <Button link="/events">Show All Events</Button>
         </div>
       </Fragment>
     );
   }
 
-  const date = new Date(numYear, numMonth - 1);
+  const startTime = new Date(numYear, numMonth - 1);
 
   return (
     <Fragment>
-      <ResultsTitle date={date} />
+      <ResultsTitle startTime={startTime} />
       <EventList items={filteredEvents} />
     </Fragment>
   );
