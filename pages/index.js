@@ -15,6 +15,7 @@ export async function getStaticProps() {
     props: {
       events: featuredEvents,
     },
+    // revalidation happens every 1800 seconds (30 minutes)
     revalidate: 1800,
   };
 }
