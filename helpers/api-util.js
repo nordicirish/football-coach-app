@@ -3,8 +3,6 @@ export async function getAllEvents() {
     "https://football-coach-app-402512-default-rtdb.europe-west1.firebasedatabase.app/events.json"
   );
   const data = await response.json();
-  console.log("[api-util] data", data);
-
   const events = [];
   // create an array of objects from the data
   for (const key in data) {
@@ -13,7 +11,6 @@ export async function getAllEvents() {
       ...data[key],
     });
   }
-  console.log("[api-util] events", events);
   return events;
 }
 
@@ -32,12 +29,11 @@ export async function getFilteredEvents(dateFilter) {
   const { year, month } = dateFilter;
 
   let filteredEvents = allEvents.filter((event) => {
-    const eventDate = new Date(event.date);
+    const eventDate = new Date(event.startTime);
     return (
       eventDate.getFullYear() === year && eventDate.getMonth() === month - 1
     );
   });
-
   return filteredEvents;
 }
 
