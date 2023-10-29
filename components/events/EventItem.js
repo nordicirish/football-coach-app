@@ -1,18 +1,24 @@
-import React from "react";
-import Image from "next/image";
-import Link from "next/link";
-
-import classes from "./event-item.module.css";
-import Button from "../ui/button";
+import Button from "../ui/Button";
 import DateIcon from "../icons/date-icon";
 import AddressIcon from "../icons/address-icon";
 import ArrowRightIcon from "../icons/arrow-right-icon";
-import { getHumanReadableDate } from "../../dummy-data";
+import classes from "./EventItem.module.css";
+import Image from "next/image";
 
 function EventItem(props) {
   const { title, image, startTime, location, id } = props;
-  const humanReadableDate = getHumanReadableDate(startTime);
-  const formattedAddress = location.replace(",", "\n");
+
+  const humanReadableDate = new Date(startTime).toLocaleDateString("fi-FI", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+    hour: "numeric",
+    minute: "numeric",
+    hour12: false,
+  });
+
+  const formattedAddress = location.replace(", ", "\n");
+
   const exploreLink = `/events/${id}`;
 
   return (

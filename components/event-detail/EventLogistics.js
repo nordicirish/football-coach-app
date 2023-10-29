@@ -1,21 +1,20 @@
 import AddressIcon from "../icons/address-icon";
 import DateIcon from "../icons/date-icon";
-import LogisticsItem from "./logistics-item";
-import classes from "./event-logistics.module.css";
+import LogisticsItem from "./LogisticsItem";
+import classes from "./EventLogistics.module.css";
 import { getHumanReadableDate } from "../../dummy-data";
-
+import Image from "next/image";
 function EventLogistics(props) {
-  console.log("event-logistics", props);
   const { startTime, address, image, imageAlt } = props;
 
   const humanReadableDate = getHumanReadableDate(startTime);
-  console.log("event-logistics humanReadable", humanReadableDate);
+
   const addressText = address.replace(", ", "\n");
 
   return (
     <section className={classes.logistics}>
       <div className={classes.image}>
-        <img src={`/${image}`} alt={imageAlt} />
+        <Image src={`/${image}`} alt={imageAlt} width={300} height={200} />
       </div>
       <ul className={classes.list}>
         <LogisticsItem icon={DateIcon}>

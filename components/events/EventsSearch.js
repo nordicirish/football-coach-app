@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import Button from "../ui/button";
+import Button from "../ui/Button";
 import DatePicker, { registerLocale, setDefaultLocale } from "react-datepicker";
 import fi from "date-fns/locale/fi";
 import "react-datepicker/dist/react-datepicker.css";
-import classes from "./events-search.module.css";
+import classes from "./EventsSearch.module.css";
 registerLocale("fi", fi);
 setDefaultLocale("fi");
 

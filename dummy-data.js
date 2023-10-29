@@ -4,7 +4,7 @@ const DUMMY_EVENTS = [
     title: "Some other training event",
     eventType: "Training1",
     description:
-      "Some other training event. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla euismod, nisl eget aliquam ultricies, nunc nisl aliquet nunc, eget aliquam ",
+      "Some other training event. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla euismod, nisl eget aliquam ultricies, nunc nisl aliquet nunc, eget aliquam",
     location: "A street Tampere",
     // date: "2022-06-21T14:30:00",
     startTime: "2022-06-21T14:30:00",
@@ -17,7 +17,7 @@ const DUMMY_EVENTS = [
     title: "Away game at Turku",
     eventType: "Match",
     description:
-      "Some match. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla euismod, nisl eget aliquam ultricies, nunc nisl aliquet nunc, eget aliquam ",
+      "Some match. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla euismod, nisl eget aliquam ultricies, nunc nisl aliquet nunc, eget aliquam",
     location: "Some street, Turku",
     // date: "2023-08-21T14:30:00",
     startTime: "2023-08-21T14:30:00",
@@ -51,7 +51,7 @@ export function getFilteredEvents(dateFilter) {
   const { year, month } = dateFilter;
 
   let filteredEvents = DUMMY_EVENTS.filter((event) => {
-    const eventDate = new Date(event.date);
+    const eventDate = new Date(event.startTime);
     return (
       eventDate.getFullYear() === year && eventDate.getMonth() === month - 1
     );

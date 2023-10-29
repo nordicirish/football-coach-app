@@ -1,14 +1,12 @@
-import Button from "../ui/button";
-import classes from "./results-title.module.css";
+import Button from "../ui/Button";
+import classes from "./ResultsTitle.module.css";
+import { getHumanReadableDate } from "../../dummy-data";
 
 function ResultsTitle(props) {
   const { startTime } = props;
 
-  const humanReadableDate = new Date(startTime).toLocaleDateString("fi-FI", {
-    month: "long",
-    year: "numeric",
-  });
-  console.log(humanReadableDate);
+  const humanReadableDate = getHumanReadableDate(startTime);
+  // console.log(humanReadableDate);
   return (
     <section className={classes.title}>
       <h1>Events in {humanReadableDate}</h1>
